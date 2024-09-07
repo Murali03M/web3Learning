@@ -1,40 +1,36 @@
 import { useMemo, useState } from 'react';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
-import { WalletModalProvider, WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-
-import '@solana/wallet-adapter-react-ui/styles.css';
+import { WalletMultiButton, WalletDisconnectButton } from '@solana/wallet-adapter-react-ui';
+import { Card, CardHeader, CardContent, CardFooter } from './components/ui/card'; // Adjust path as needed
+import { Link } from 'react-router-dom';
+import { Button } from './components/ui/button';
 import Airdrop from './Airdrop';
 import ShowBalance from './showBalance';
-import { Card, CardBody } from '@material-tailwind/react';
 
 export function Wallet() {
-    const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter()], []);
-
     const [balanceUpdated, setBalanceUpdated] = useState(false);
 
     const handleAirdropSuccess = () => {
-        setBalanceUpdated((prev) => !prev); 
+        setBalanceUpdated(prev => !prev); 
     };
 
     return (
-        <ConnectionProvider endpoint={"https://devnet.helius-rpc.com/?api-key=bbba508a-8a83-457b-b652-6ccb8fe1775f"}>
-            <WalletProvider wallets={wallets} autoConnect>
-                <WalletModalProvider>
-                    <div className="flex justify-center items-center min-h-screen bg-blue-gray-50">
-                        <Card className="w-full max-w-md" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                            <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                                <div className="text-center mb-4 flex flex-row gap-2">
-                                    <WalletMultiButton />
-                                    <WalletDisconnectButton />
-                                </div>
-                                <Airdrop onAirdropSuccess={handleAirdropSuccess} />
-                                <ShowBalance updateTrigger={balanceUpdated} />
-                            </CardBody>
-                        </Card>
+        <div className="flex justify-center items-center min-h-screen bg-blue-gray-50">
+            <Card className="w-[350px] max-w-md">
+                <CardHeader>
+                    <div className="text-center mb-4 flex flex-col gap-2">
+                        <WalletMultiButton style={{ width: '100%', backgroundColor: 'black', color: 'white' }} />
+                        <WalletDisconnectButton style={{ backgroundColor: 'black', color: 'white' }} />
                     </div>
-                </WalletModalProvider>
-            </WalletProvider>
-        </ConnectionProvider>
+                </CardHeader>
+                <CardContent>
+                    <Airdrop onAirdropSuccess={handleAirdropSuccess} />
+                    <ShowBalance updateTrigger={balanceUpdated} />
+                </CardContent>
+                <CardFooter className='flex justify-between'>
+                    <Link to="/sign-message"><Button>Sign Message</Button></Link> 
+                    <Link to="/send-solana"><Button>Send Solana</Button></Link>
+                </CardFooter>
+            </Card>
+        </div>
     );
 }

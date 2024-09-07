@@ -1,6 +1,7 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { useState, useEffect } from "react";
+import { Card } from "./components/ui/card";
 
 interface ShowBalanceProps {
     updateTrigger: boolean; // Triggers balance refresh
@@ -30,7 +31,7 @@ export default function ShowBalance({ updateTrigger }: ShowBalanceProps) {
     }, [wallet.publicKey, connection, updateTrigger]); // Update balance whenever updateTrigger changes
 
     return (
-        <div className="flex text-lg justify-center items-center flex-col mt-4 p-4 bg-gray-100 rounded shadow">
+        <Card className="flex text-lg justify-center items-center flex-col mt-4 p-4 bg-gray-100 rounded shadow">
             {wallet.publicKey ? (
                 <div className="font-semibold text-gray-800">
                     Balance: {balance !== null ? `${balance.toFixed(2)} SOL` : "Loading..."}
@@ -40,6 +41,6 @@ export default function ShowBalance({ updateTrigger }: ShowBalanceProps) {
             )}
 
 
-        </div>
+        </Card>
     );
 }

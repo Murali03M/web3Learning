@@ -1,5 +1,7 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { FC, useState } from 'react';
+import { Button } from './components/ui/button';
+import { Input } from './components/ui/input';
 
 interface AirdropProps {
     onAirdropSuccess: () => void; // Callback to trigger balance update
@@ -33,20 +35,19 @@ const Airdrop: FC<AirdropProps> = ({ onAirdropSuccess }) => {
 
     return (
         <div className="flex flex-row items-center justify-center space-x-4 mb-4">
-            <input
+            <Input
                 type="number"
                 placeholder="Amount"
                 className="border p-2 text-center rounded w-32"
                 value={amount}
                 onChange={(e) => setAmount(Number(e.target.value))}
             />
-            <button
+            <Button
                 type="button"
                 onClick={airdropHandler}
-                className="p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
             >
                 Request Airdrop
-            </button>
+            </Button>
         </div>
     );
 };
