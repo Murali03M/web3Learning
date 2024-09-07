@@ -5,7 +5,7 @@ import { WalletModalProvider, WalletDisconnectButton, WalletMultiButton } from '
 
 import '@solana/wallet-adapter-react-ui/styles.css';
 import Airdrop from './Airdrop';
-import ShowBalance from './ShowBalance';
+import ShowBalance from './showBalance';
 import { Card, CardHeader, CardBody } from '@material-tailwind/react';
 
 export function Wallet() {
