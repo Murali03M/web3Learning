@@ -23,14 +23,8 @@ export function Wallet() {
                 <WalletModalProvider>
                     <div className="flex justify-center items-center min-h-screen bg-blue-gray-50">
                         <Card className="w-full max-w-md" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                            <CardHeader color="white" className="relative h-20"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                                <div className="absolute inset-0 flex justify-center items-center">
-                                    <h3 className="text-white text-xl">Solana Wallet</h3>
-                                </div>
-                            </CardHeader>
-
                             <CardBody placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                                <div className="text-center mb-4">
+                                <div className="text-center mb-4 flex flex-row gap-2">
                                     <WalletMultiButton />
                                     <WalletDisconnectButton />
                                 </div>
