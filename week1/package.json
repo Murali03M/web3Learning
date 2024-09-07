@@ -1,0 +1,17 @@
+{
+  "name": "week1",
+  "version": "1.0.0",
+  "main": "sha256.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@noble/ed25519": "^2.1.0",
+    "crypto": "^1.0.1"
+  }
+}
