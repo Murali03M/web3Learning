@@ -6,7 +6,7 @@ import { WalletModalProvider, WalletDisconnectButton, WalletMultiButton } from '
 import '@solana/wallet-adapter-react-ui/styles.css';
 import Airdrop from './Airdrop';
 import ShowBalance from './showBalance';
-import { Card, CardHeader, CardBody } from '@material-tailwind/react';
+import { Card, CardBody } from '@material-tailwind/react';
 
 export function Wallet() {
     const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter()], []);
