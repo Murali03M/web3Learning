@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import { ed25519 } from '@noble/curves/ed25519';
 import bs58 from 'bs58';
-import { redirect, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 
 const SignMessage = () => {

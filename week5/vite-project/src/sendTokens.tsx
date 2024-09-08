@@ -5,6 +5,8 @@ import { Input } from "./components/ui/input";
 import { Button } from "./components/ui/button";
 import { Card, CardHeader } from "./components/ui/card";
 import { Buffer } from 'buffer';
+import { useNavigate } from "react-router-dom";
+
 
 export function SendTokens() {
     const { publicKey, sendTransaction } = useWallet();
@@ -12,6 +14,8 @@ export function SendTokens() {
     const [to, setTo] = useState("");
     const [amount, setAmount] = useState("");
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
 
     // Ensure Buffer is defined
     window.Buffer = Buffer;
@@ -58,9 +62,12 @@ export function SendTokens() {
             const signature = await sendTransaction(transaction, connection);
 
             // // Confirm the transaction
-            // await connection.confirmTransaction(signature);
+            //  await connection.confirmTransaction(signature);
 
             alert(`Sent ${amount} SOL to ${to}. Transaction Signature: ${signature}`);
+            setTo("");
+            navigate("/")
+        
         } catch (error) {
             console.error('Transaction failed:', error);
             alert('Transaction failed. Check the console for more details.');
