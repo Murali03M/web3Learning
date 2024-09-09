@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import {  useState } from 'react';
 import { WalletMultiButton, WalletDisconnectButton } from '@solana/wallet-adapter-react-ui';
 import { Card, CardHeader, CardContent, CardFooter } from './components/ui/card'; // Adjust path as needed
 import { Link } from 'react-router-dom';
