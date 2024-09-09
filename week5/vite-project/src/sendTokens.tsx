@@ -58,15 +58,11 @@ export function SendTokens() {
             transaction.recentBlockhash = latestBlockhash.blockhash;
 
 
-            // Request the wallet to sign and send the transaction
             const signature = await sendTransaction(transaction, connection);
-
-            // // Confirm the transaction
-            //  await connection.confirmTransaction(signature);
 
             alert(`Sent ${amount} SOL to ${to}. Transaction Signature: ${signature}`);
             setTo("");
-            navigate("/")
+            navigate("/");
         
         } catch (error) {
             console.error('Transaction failed:', error);

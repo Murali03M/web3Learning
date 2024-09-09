@@ -24,7 +24,7 @@ const SignMessage = () => {
         const signature = await signMessage(encodeMessage);
 
         if (!ed25519.verify(signature, encodeMessage, publicKey.toBytes())) throw new Error('Message signature invalid!');
-        alert('success', `Message signature: ${bs58.encode(signature)}`);
+        alert(`success ${bs58.encode(signature)}`);
         setMessage("");
         navigate("/")
     };
