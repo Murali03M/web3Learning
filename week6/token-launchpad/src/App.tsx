@@ -6,6 +6,7 @@ import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react
 import '@solana/wallet-adapter-react-ui/styles.css';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import Navbar from './components/navbar';
+import LaunchPad from './components/launchpad';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
       <ConnectionProvider endpoint='https://devnet.helius-rpc.com/?api-key=bbba508a-8a83-457b-b652-6ccb8fe1775f'>
         <WalletProvider wallets={[]} autoConnect>
           <WalletModalProvider>
-            <Navbar/>
+            <Navbar />
+            <LaunchPad/>
           </WalletModalProvider>
           </WalletProvider>
 
